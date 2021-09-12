@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script >
+			// test function estPremier
+			function estPremier(nombre) {
+				for (var i = 2; i < nombre; i++) {
+					if (nombre % i === 0) {
+						return false	
+					}
+				}
+				return true
+			}
+
+			// function qui multiplie les nombres
+			function multiplie(a, b){
+				return a*b
+			}
+
+			// function qui multiplie les nombres
+			function multiplie(a, b){
+				if (b === undefined){
+					b = 1
+				}
+				return a*b
+			}
+
+			// exo eleves
+			var classA = [{
+				nom: 'marc',
+				moyenne : 15
+			}, {
+				nom: 'marion',
+				moyenne : 8
+			}, {
+				nom: 'antoinne',
+				moyenne : 4
+			}, {
+				nom: 'jean',
+				moyenne : 14
+			}]
+
+			var classB = [{
+				nom: 'will',
+				moyenne : 16
+			}, {
+				nom: 'smith',
+				moyenne : 9
+			}, {
+				nom: 'pedro',
+				moyenne : 12
+			}, {
+				nom: 'claire',
+				moyenne : 7
+			}]
+
+			function afficherQuiALaMoyenne (eleves) {
+				for(var i=0; i < eleves.length; i++){
+					var eleve = eleves[i]
+					if(eleve.moyenne >= 10 ){
+						console.log(eleve.nom + ' a la moyenne' )	
+					}
+				}
+			}
+
+			afficherQuiALaMoyenne(classA)
+			afficherQuiALaMoyenne(classB)
+
+			var aLaMoyenne = function (eleves){
+				var moyennes = []
+				for (var i = 0; i < eleves.length; i++) {
+					var eleve = eleves[i]
+					if (eleve.moyenne >= 10) {
+						moyennes.push(eleve)
+					}		
+				}
+				return moyennes
+			}
+			console.log(aLaMoyenne(classA))
+			console.log(aLaMoyenne(classB))
+
+		</script>
+	</head>
+<body>
+
+</body>
+</html>

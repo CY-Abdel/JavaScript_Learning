@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            body{
+                color: #424242;
+                font-family: sans-serif;
+            }
+            .spoiler button {
+                background-color: #B9E937;
+                color: #424242;
+                border: none;
+                border: 1px solid #00B906;
+                cursor: pointer;
+            }
+            .spoiler-content{
+                display: inline-block;
+                width: 0;
+                height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: opacity 0.5s;
+            }
+            .spoiler-content.visible{
+                display: inline;
+                opacity: 1;
+            }
+            /* .spoiler{
+                background-color: #424242;
+            } */
+        </style>
+    </head>
+    <body>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis lacinia tincidunt.
+        </p>
+        <p class="spoiler">
+           Monsieur x meurt a la fin
+        </p>
+        <p>
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis lacinia tincidunt.</span>
+            <span>Nullam et nisi neque. <span class="spoiler">Morbi efficitur eget magna vitae lobortis.</span> Etiam elit sapien, finibus vel placerat nec, elementum ac lorem. Integer aliquam, augue a venenatis viverra, est nisi interdum risus, eu efficitur enim lectus sed ex. Pellentesque augue augue, viverra non erat et, pulvinar commodo nulla. Nulla bibendum, leo id porta vulputate, erat elit porttitor odio, et tempus risus est ut dolor. Aliquam ut ipsum non libero pretium maximus sit amet sit amet diam.</span>
+            <span>Vivamus scelerisque metus nec ante placerat scelerisque. Curabitur ac turpis ut arcu suscipit blandit in vel velit. Donec eget lorem arcu. Sed ultricies leo lectus, ac varius nisl laoreet non.</span>
+        </p>
+
+        <script type="text/javascript" src="./spoiler.js"></script> 
+        
+    </body>
+</html>
