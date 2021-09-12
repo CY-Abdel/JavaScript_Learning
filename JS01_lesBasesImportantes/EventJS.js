@@ -1,8 +1,8 @@
-var p = document.querySelector('p')
+/*var p = document.querySelector('p')
 var rougit = function (){
 	p.classList.add('red')
 }
-p.addEventListener('click', rougit )
+p.addEventListener('click', rougit )*/
 
 /*var ps   = document.querySelectorAll('p')
 for (let index = 0; index < ps.length; index++) {
@@ -15,13 +15,13 @@ for (let index = 0; index < ps.length; index++) {
 */
 
 
-// for (var i = 0; i < ps.length; i++) {
-//     (function(p) {
-//         window.setInterval(function () {
-//             p.classList.toggle('red')
-//         }, 800)
-//     })(ps[i])
-// }
+for (var i = 0; i < ps.length; i++) {
+    (function(p) {
+        window.setInterval(function () {
+            p.classList.toggle('red')
+        }, 800)
+    })(ps[i])
+}
 
 // var ps = document.querySelectorAll('p')
 // for (let index = 0; index < ps.length; index++) {
