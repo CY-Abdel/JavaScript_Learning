@@ -14,7 +14,7 @@ for (let index = 0; index < ps.length; index++) {
 }
 */
 
-
+ps   = document.querySelectorAll('p')
 for (var i = 0; i < ps.length; i++) {
     (function(p) {
         window.setInterval(function () {
