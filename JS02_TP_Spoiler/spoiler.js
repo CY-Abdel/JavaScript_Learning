@@ -1,14 +1,9 @@
-// var button = document.querySelector('.spoiler button')
-
-// button.addEventListener('click', function () {
-//     this.nextElementSibling.classList.add('visible')
-//     this.parentNode.removeChild(this)
-// })
 
 var elements = document.querySelectorAll('.spoiler')
 
 var createButton = function (element) {
-    //creer span
+    
+    //creer span spoiler-content
     var span = document.createElement('span')
     span.className = "spoiler-content"
     span.innerHTML = element.innerHTML

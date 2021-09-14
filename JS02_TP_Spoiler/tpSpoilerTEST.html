@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            .spoiler-content {
+                display: inline-block;
+                width: 0;
+                height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: opacity 1.7s;
+            }
+            .spoiler-content.visible{
+                display: inline;
+                width: auto;
+                height: auto;
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis lacinia tincidunt.
+        </p>
+        <p class="spoiler">
+            <button>afficher le spoiler</button>
+            <span class="spoiler-content">Monsieur x meurt a la fin</span>
+        </p>
+
+        <p>
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis lacinia tincidunt.</span>
+            <span>Nullam et nisi neque. <span class="spoiler">L'acteur Meurt a la fin  par la main de son epouse et il sera reincarner dans le corps d'un pauvre paysan de 15 ans et commence son chemin pour la vengence.</span>
+        </p>
+
+        <script type="text/javascript" src="./spoiler2.js"></script> 
+        
+    </body>
+</html> 
