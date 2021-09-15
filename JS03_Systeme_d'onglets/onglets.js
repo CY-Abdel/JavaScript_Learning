@@ -1,3 +1,12 @@
+/*Lorsque on clique sur un onglet
+    on retire la class active de l'onGLET
+    J'AJOUTE LA CLASS ACTIVE A L'oNGLET ACTUEL
+
+    on retire la classe active sur le contenu actif
+    j'ajoute la class active au contenu sur lequel on a cliquer
+*/
+
+
 (function () {
     var afficherOnglet = function (a, animations) {
         if(animations === undefined){
@@ -12,7 +21,8 @@
         
         // on retire la classe active de l'onglet active 
         div.querySelector('.tabs .active').classList.remove('active')
-        // on ajoute la class actilve sur l'onglet actuel
+        
+        //on ajoute la class actilve sur l'onglet actuel
         li.classList.add('active')
     
         // div.querySelector('.tab-content.active').classList.remove('active')
@@ -36,7 +46,7 @@
             activeTab.addEventListener('transitionend', transitionend)
         }else{
             aAffihcer.classList.add('active')
-            activeTab.classList.remove('asctive') 
+            activeTab.classList.remove('active') 
         }    
     }
     
@@ -46,7 +56,10 @@
             afficherOnglet(this)
         }); 
     }
-    
+    // Je recupere le hash
+    // je dois ajouter la classe active sur le ligne href = "hash"
+    // returer la classe active sur les autres onglet
+    // afficher / masquer les contenues
     var hashChange = function (e) {
         var hash = window.location.hash
         var a = document.querySelector('a[href="' + hash + '"]')
