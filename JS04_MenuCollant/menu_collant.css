@@ -1,3 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -10,7 +18,7 @@ body{
     height: 50px;
     line-height: 50px;
     font-size: 20px;
-    padding: 0 60px;
+    padding: 0 55px;
     font-weight: bold;
     border-bottom: 1px solid #bababa;
 }
@@ -34,10 +42,9 @@ body{
     background-color: #EEEEEE;
 }
 
-.sidebar.fixed{
-    /* position: fixed;
-    top: 0; */
-    opacity: 0.7;
+.fixed {
+    position: fixed;
+    top : 0px;
 }
 
 .content {
@@ -45,17 +52,26 @@ body{
 }
 
 .main{
-    padding: 0 20px;
+    /*padding: 0 20px;*/
     float: left;
-    width: 70%;
+    width: 75%;
     background-color: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 12), 0 1px 2px rgba(0, 0, 0, 24);
 }
 
 .sidebar{
     float: right;
-    width: 20%;
-    padding: 0 20px;
+    width: 25%;
+    padding: 20px;
+}
+
+/*
+.sidebar.fixed{
+*/
+    /* position: fixed;
+    top: 0; */ 
+ /*   
+    opacity: 0.7;
 }
 
 .sidebar-container{
@@ -71,3 +87,4 @@ body{
 }
 
 
+*/
