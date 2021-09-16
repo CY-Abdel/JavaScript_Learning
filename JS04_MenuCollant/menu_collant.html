@@ -26,14 +26,25 @@
             </div>
 
             <div class="sidebar">
-                <div data-sticky>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+                <div class="sidebar-container">
+                    <div class="bloc" data-sticky data-offset="80" data-constraint=".sidebar-container">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+                    </div>
+                    <!-- ajout d'un espace entre les deux div -->
+                    &nbsp;
+                    <div class="bloc" >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- cette div c'est pour eviter que le body aie des size erronés car on a met des div en float -->
+        <div style="clear:both"></div>
         <script type="text/javascript" src="./menu_collant.js "></script> 
     </body>
 </html>

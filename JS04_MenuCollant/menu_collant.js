@@ -7,19 +7,14 @@
 		return supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
 	}
 
-	// on recuper tous les elemets qui vont avoir un attribut fixe
-	var elements = document.querySelectorAll('[data-sticky]')
-
-	for (var i = 0; i < elements.length; i++) {
-		// on cree un function qui s'auto appelle
-		(function(element) {
-			/*
+	var makeSticky = function (element) {
+		/*
 			lorsue l'on scrole
 				si le menu sort de l'ecran
 				Alors il devient fixe
 			*/
 			
-			// Les variables
+			// -- Les variables
 			// pas la peine de le creer car il est un param de la fonct
 			/*
 				var element = document.querySelector('.menu')
@@ -31,6 +26,20 @@
 			
 			var rect = element.getBoundingClientRect() 
 			
+			// creer le offset et sa donne une chaine de caratctere il faut le parsint
+			var offset = parseInt(element.getAttribute('data-offset') || 0, 10)
+			console.log(offset)
+
+			// il faut savoir a quel moment la la div du sidebar sort de la div bloc
+			if(element.getAttribute('data-constraint')){
+				var constraint = document.querySelector(element.getAttribute('data-constraint'))
+			} else {
+				var constraint = document.body
+			}
+
+			var constraintRect = constraint.getBoundingClientRect()
+			var constraintBottom = constraintRect.top + scrollY() + constraintRect.height - offset - rect.height  
+
 			// pour que le texte ne disparait pas qu'on le menu devien fixe on cree un faux element
 			var fake = document.createElement('div')
 			fake.style.width = rect.width + "px"
@@ -38,21 +47,33 @@
 			
 			// Les Fonctions
 			var onScroll = function (){ 
-				var hasScrollClass = element.classList.contains('fixed')
-				if (scrollY() > top && !hasScrollClass) {
+				// var hasScrollClass = element.classList.contains('fixed')
+				if (scrollY() > constraintBottom && element.style.position != 'absolute') {
+					console.log('trop bas')
+					//element.classList.remove('fixed')
+					element.style.position = 'absolute'
+					element.style.bottom = '0'
+					element.style.top = 'auto'
+				} else if (scrollY() > top-offset && scrollY() < constraintBottom && element.style.position != 'fixed') {
 					// si on ajoute pas la condition hasScroll alors le code sera execute chasue fois on scroll
 					// mais dans ce cas el code sera executer une seule fois
 					element.classList.add('fixed')
+					element.style.position = 'fixed'
+					element.style.top = offset + "px"
+					element.style.bottom = 'auto'
 					// l'element perd sa largeur qu'on on scroll donc 
 					// pr que la largeur redevienne normal
 					// ne pa oublier l'unité
 					element.style.width = rect.width + "px"
 					// on ajoute l'element fake
 					element.parentNode.insertBefore(fake, element)
-				} else if (scrollY() < top && hasScrollClass) {
+				} else if (scrollY() < top - offset && element.style.position != 'static') {
 					element.classList.remove('fixed')
+					element.style.position = 'static'
 					// on retire l'element fake
-					element.parentNode.removeChild(fake)
+					if (element.parentNode.contains(fake)) {
+                        element.parentNode.removeChild(fake)
+                    }
 				}
 			}
 
@@ -60,9 +81,13 @@
 				/* on remet la largeur auto */
 				element.style.width = "auto"
 				element.classList.remove('fixed')
+				element.style.position = 'static'
 				fake.style.display = "none"
 				// on recalcule les positions
-				rect = element.getBoundingClientRect() 
+				rect = element.getBoundingClientRect()
+				constraintRect = constraint.getBoundingClientRect()
+				constraintBottom = constraintRect.top + scrollY() + constraintRect.height - offset - rect.height  
+ 
 				top = rect.top + scrollY()
 				// on ajoute l'element fake qui correspond au nouvelles size
 				fake.style.width = rect.width + "px"
@@ -76,8 +101,14 @@
 			window.addEventListener('scroll', onScroll)
 			/* lorsqu'on resize la page alors les valeur de width et autres sont changées donc faut redimensioné*/
 			window.addEventListener('resize', onResize)
+	}
 
-		})(elements[i])
+	// on recuper tous les elemets qui vont avoir un attribut fixe
+	var elements = document.querySelectorAll('[data-sticky]')
+
+	for (var i = 0; i < elements.length; i++) {
+		// on cree un function qui s'auto appelle
+		makeSticky(elements[i])
 	}
 })()
 
