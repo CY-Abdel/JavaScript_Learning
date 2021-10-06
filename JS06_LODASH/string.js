@@ -8,6 +8,8 @@ demo = "000000041100000"
 // si on souhaite supprimer les zeros on passe des param a la func trim
 console.log(demo)
 console.log(_.trim(demo, '0'))
+console.log(_.trim(demo, '1'))
+
 
 /*
 var demo = '   aziz    '
