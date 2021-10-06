@@ -1,4 +1,15 @@
+var demo = "   chougar   "
 
+// pour supprimer les espaces aavant et apres la chaine de caractere
+console.log(demo)
+console.log(_.trim(demo))
+
+demo = "000000041100000"
+// si on souhaite supprimer les zeros on passe des param a la func trim
+console.log(demo)
+console.log(_.trim(demo, '0'))
+
+/*
 var demo = '   aziz    '
 console.log(demo)
 console.log(_.trim(demo))
@@ -27,3 +38,4 @@ console.log(_.kebabCase(demo))
 demo = '__foo_bar__'
 console.log(_.upperCase(demo))
 console.log(demo.toUpperCase())
+*/
