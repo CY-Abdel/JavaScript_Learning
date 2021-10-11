@@ -1,4 +1,4 @@
-
+/*
 
 
 window.addEventListener('scroll', _.debounce(function () {
@@ -8,5 +8,6 @@ window.addEventListener('scroll', _.debounce(function () {
 
 window.addEventListener('scroll', function () {
     console.log('avec throtle')
-})
+}) 
 
+*/
